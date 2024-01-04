@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "cy:spec1": "cypress run --spec 'cypress/e2e/adminLoginTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
+    "cy:spec2": "cypress run --spec 'cypress/e2e/bookingMovieTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
+    "cy:spec3": "cypress run --spec 'cypress/e2e/mainPageTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
+    "cy:parallel": "npm run cy:spec1 -- --browser chrome --group Spec1 --ci-build-id 2 & npm run cy:spec2 -- --browser chrome --group Spec2 --ci-build-id 2"
   },
   "keywords": [],
   "author": "victor",
