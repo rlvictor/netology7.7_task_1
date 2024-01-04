@@ -21,7 +21,7 @@ describe("Booking movie", () => {
           .next()
           .contains("17:00")
           .click();
-        cy.choosePlace(9, 6, 7);
+        cy.choosePlace(3, 6, 7);
         cy.get(selector.bookButton).click();
         cy.contains("Вы выбрали билеты:").should("be.visible");
       });

@@ -4,10 +4,19 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "cy:spec1": "cypress run --spec 'cypress/e2e/adminLoginTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
-    "cy:spec2": "cypress run --spec 'cypress/e2e/bookingMovieTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
-    "cy:spec3": "cypress run --spec 'cypress/e2e/mainPageTest.cy.js' --record --key 05126423-8d58-425a-9375-c32d3635feff",
-    "cy:parallel": "npm run cy:spec1 -- --browser chrome --group Spec1 --ci-build-id 2 & npm run cy:spec2 -- --browser chrome --group Spec2 --ci-build-id 2"
+    "spec1:chrome": "cypress run --spec 'cypress/e2e/tests2/adminLoginTest.cy.js' --record --group Spec1 --browser chrome",
+    "spec2:chrome": "cypress run --spec 'cypress/e2e/tests1/mainPageTest.cy.js' --record --group Spec2 --browser chrome",
+    "test:parallel:chrome": "run-p -c spec1:chrome spec2:chrome",
+    "spec1:electron": "cypress run --spec 'cypress/e2e/tests2/adminLoginTest.cy.js' --record --group Spec1 --browser electron",
+    "spec2:electron": "cypress run --spec 'cypress/e2e/tests1/mainPageTest.cy.js' --record --group Spec2 --browser electron",
+    "test:parallel:electron": "run-p -c spec1:electron spec2:electron",
+    "spec1:firefox": "cypress run --spec 'cypress/e2e/tests2/adminLoginTest.cy.js' --record --group Spec1 --browser firefox",
+    "spec2:firefox": "cypress run --spec 'cypress/e2e/tests1/mainPageTest.cy.js' --record --group Spec2 --browser firefox",
+    "test:parallel:firefox": "run-p -c spec1:firefox spec2:firefox",
+    "test:parallel:electronFirefox": "run-p -c spec1:electron spec2:firefox",
+    "tests1": "cypress run --spec 'cypress/e2e/tests1/*' --record --group SpecFolder1",
+    "tests2": "cypress run --spec 'cypress/e2e/tests2/*' --record --group SpecFolder2",
+    "test:parallel:folderParallel": "run-p -c tests1 tests2"
   },
   "keywords": [],
   "author": "victor",
